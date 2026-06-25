@@ -27,7 +27,7 @@ export default function AppLayout() {
           
           {/* Main Workspace Panel */}
           <Panel>
-            <div className="flex-col h-full bg-[#202020]">
+            <div className="flex-col h-full bg-[var(--bg-panel)]">
               <TabBar />
               
               {tabs.length === 0 ? (

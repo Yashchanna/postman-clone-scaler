@@ -31,9 +31,9 @@ export default function ResponseViewer({ activeTabId }: { activeTabId: string | 
   if (!activeTabId) return null;
 
   return (
-    <div className="flex flex-col h-full w-full border-t border-[#383838]">
+    <div className="flex flex-col h-full w-full border-t border-[var(--border-color)]">
       {/* Response Header Area */}
-      <div className="flex items-center justify-between bg-[#202020] px-4 pt-2 border-b border-[#383838]">
+      <div className="flex items-center justify-between bg-[var(--bg-panel)] px-4 pt-2 border-b border-[var(--border-color)]">
         <div className="tabs-header border-none">
           {['Body', 'Headers'].map(tab => (
             <div 
@@ -92,7 +92,7 @@ export default function ResponseViewer({ activeTabId }: { activeTabId: string | 
                   </button>
                 </div>
                 
-                <div className="flex-1 overflow-auto border border-[#383838] rounded-md bg-[#121212] p-4 text-sm font-mono">
+                <div className="flex-1 overflow-auto border border-[var(--border-color)] rounded-md bg-[#121212] p-4 text-sm font-mono">
                   {bodyView === 'pretty' && typeof response.body === 'object' && response.body !== null ? (
                     <pre className="text-green-400 m-0 whitespace-pre-wrap">
                       {JSON.stringify(response.body, null, 2)}

@@ -8,8 +8,8 @@ export default function Sidebar() {
   const [activeTab, setActiveTab] = useState<'collections' | 'history'>('collections');
 
   return (
-    <div className="flex flex-col h-full bg-[#181818] border-r border-[#383838]">
-      <div className="flex items-center border-b border-[#383838]">
+    <div className="flex flex-col h-full bg-[var(--bg-sidebar)] border-r border-[var(--border-color)]">
+      <div className="flex items-center border-b border-[var(--border-color)]">
         <button
           className={`flex-1 p-2 text-sm font-medium border-b-2 ${activeTab === 'collections' ? 'border-[#FF6C37] text-white' : 'border-transparent text-gray-400 hover:text-gray-200 hover:bg-[#333333]'}`}
           onClick={() => setActiveTab('collections')}

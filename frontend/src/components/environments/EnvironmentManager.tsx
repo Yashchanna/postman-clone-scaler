@@ -60,12 +60,12 @@ export default function EnvironmentManager({ onClose }: { onClose: () => void })
   };
 
   return (
-    <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
-      <div className="bg-[#202020] rounded-lg shadow-xl w-[800px] h-[500px] flex overflow-hidden border border-[#383838]">
+    <div className="fixed inset-0 modal-overlay flex items-center justify-center z-50">
+      <div className="modal-content w-[800px] h-[500px] flex overflow-hidden">
         
         {/* Sidebar */}
-        <div className="w-1/3 border-r border-[#383838] bg-[#181818] flex flex-col">
-          <div className="p-4 border-b border-[#383838] flex justify-between items-center">
+        <div className="w-1/3 border-r border-[var(--border-color)] bg-[var(--bg-sidebar)] flex flex-col">
+          <div className="p-4 border-b border-[var(--border-color)] flex justify-between items-center">
             <h2 className="font-bold">Environments</h2>
             <button onClick={handleCreateNew} className="text-gray-400 hover:text-white"><Plus size={18} /></button>
           </div>
@@ -73,7 +73,7 @@ export default function EnvironmentManager({ onClose }: { onClose: () => void })
             {environments.map(env => (
               <div 
                 key={env.id} 
-                className={`p-3 cursor-pointer flex justify-between items-center ${selectedEnv?.id === env.id ? 'bg-[#333]' : 'hover:bg-[#252525]'}`}
+                className={`p-3 cursor-pointer flex justify-between items-center ${selectedEnv?.id === env.id ? 'bg-[var(--border-color)]' : 'hover:bg-[var(--bg-hover)]'}`}
                 onClick={() => handleSelectEnv(env)}
               >
                 <span>{env.name}</span>
@@ -85,7 +85,7 @@ export default function EnvironmentManager({ onClose }: { onClose: () => void })
 
         {/* Editor */}
         <div className="flex-1 flex flex-col">
-          <div className="p-4 border-b border-[#383838] flex justify-between items-center">
+          <div className="p-4 border-b border-[var(--border-color)] flex justify-between items-center">
             {selectedEnv ? (
               <input 
                 type="text" 
@@ -136,7 +136,7 @@ export default function EnvironmentManager({ onClose }: { onClose: () => void })
           </div>
 
           {selectedEnv && (
-            <div className="p-4 border-t border-[#383838] flex justify-end gap-2 bg-[#181818]">
+            <div className="p-4 border-t border-[var(--border-color)] flex justify-end gap-2 bg-[var(--bg-sidebar)]">
               {selectedEnv.id !== 0 && (
                 <button 
                   className="btn btn-secondary mr-auto text-red-500 border-red-900/30 hover:bg-red-900/20"

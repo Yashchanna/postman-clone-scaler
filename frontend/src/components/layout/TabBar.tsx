@@ -15,12 +15,12 @@ export default function TabBar() {
   const { tabs, activeTabId, setActiveTab, removeTab, addTab } = useTabStore();
 
   return (
-    <div className="flex items-center border-b border-[#383838] bg-[#181818] overflow-x-auto overflow-y-hidden" style={{ minHeight: '36px' }}>
+    <div className="flex items-center border-b border-[var(--border-color)] bg-[var(--bg-sidebar)] overflow-x-auto overflow-y-hidden" style={{ minHeight: '36px' }}>
       {tabs.map((tab) => (
         <div
           key={tab.id}
-          className={`flex items-center gap-2 px-4 py-2 border-r border-[#383838] cursor-pointer min-w-40 max-w-64 border-t-2 ${
-            activeTabId === tab.id ? 'bg-[#202020] border-t-[#FF6C37]' : 'bg-[#181818] border-t-transparent hover:bg-[#252525]'
+          className={`flex items-center gap-2 px-4 py-2 border-r border-[var(--border-color)] cursor-pointer min-w-40 max-w-64 border-t-2 ${
+            activeTabId === tab.id ? 'bg-[var(--bg-panel)] border-t-[var(--accent-color)]' : 'bg-[var(--bg-sidebar)] border-t-transparent hover:bg-[var(--bg-hover)]'
           }`}
           onClick={() => setActiveTab(tab.id)}
         >
@@ -31,7 +31,7 @@ export default function TabBar() {
             {tab.name} {tab.isDirty && '*'}
           </span>
           <button
-            className="text-gray-500 hover:text-white rounded-md hover:bg-[#333] p-0.5"
+            className="text-gray-500 hover:text-white rounded-md hover:bg-[var(--border-color)] p-0.5"
             onClick={(e) => {
               e.stopPropagation();
               removeTab(tab.id);

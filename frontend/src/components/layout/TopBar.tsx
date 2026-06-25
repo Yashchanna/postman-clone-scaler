@@ -14,14 +14,14 @@ export default function TopBar() {
   }, [fetchEnvironments]);
 
   return (
-    <div className="flex items-center justify-between px-4 py-2 bg-[#181818] border-b border-[#383838]">
+    <div className="flex items-center justify-between px-4 py-2 bg-[var(--bg-sidebar)] border-b border-[var(--border-color)]">
       <div className="flex items-center gap-2">
         <div className="bg-[#FF6C37] text-white p-1 rounded-md font-bold text-xs">API</div>
         <span className="font-semibold text-gray-200">Postman Clone</span>
       </div>
       
       <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2 bg-[#202020] border border-[#383838] rounded-md px-2 py-1">
+        <div className="flex items-center gap-2 bg-[var(--bg-panel)] border border-[var(--border-color)] rounded-md px-2 py-1">
           <Globe size={14} className="text-gray-400" />
           <select 
             className="bg-transparent text-sm text-gray-200 outline-none cursor-pointer w-40"

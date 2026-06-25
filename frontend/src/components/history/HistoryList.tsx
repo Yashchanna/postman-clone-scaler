@@ -64,7 +64,7 @@ export default function HistoryList() {
           {history.map((entry) => (
             <div 
               key={entry.id} 
-              className="flex flex-col py-2 px-2 hover:bg-[#333] cursor-pointer border-b border-[#333]"
+              className="flex flex-col py-2 px-2 hover:bg-[var(--border-color)] cursor-pointer border-b border-[#333]"
               onClick={() => handleOpenHistory(entry)}
             >
               <div className="flex items-center justify-between mb-1">

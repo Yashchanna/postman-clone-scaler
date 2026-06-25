@@ -63,9 +63,9 @@ export default function SaveRequestModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
-      <div className="bg-[#202020] rounded-lg shadow-xl w-[500px] border border-[#383838] flex flex-col">
-        <div className="p-4 border-b border-[#383838] flex justify-between items-center">
+    <div className="fixed inset-0 modal-overlay flex items-center justify-center z-50">
+      <div className="modal-content w-[500px] flex flex-col">
+        <div className="p-4 border-b border-[var(--border-color)] flex justify-between items-center">
           <h2 className="font-bold text-lg">Save Request</h2>
           <button onClick={onClose} className="text-gray-400 hover:text-white"><X size={20} /></button>
         </div>
@@ -85,7 +85,7 @@ export default function SaveRequestModal({
           
           <div className="flex flex-col gap-2">
             <label className="text-sm font-medium text-gray-300">Save to Collection</label>
-            <div className="border border-[#383838] rounded-md overflow-hidden bg-[#181818] h-[200px] overflow-y-auto">
+            <div className="border border-[var(--border-color)] rounded-md overflow-hidden bg-[var(--bg-sidebar)] h-[200px] overflow-y-auto">
               {collections.length === 0 ? (
                 <div className="p-4 text-center text-sm text-gray-500">
                   No collections found. Close and create one first.
@@ -94,7 +94,7 @@ export default function SaveRequestModal({
                 collections.map(c => (
                   <div 
                     key={c.id}
-                    className={`flex items-center gap-2 p-2 cursor-pointer border-b border-[#333] last:border-b-0 ${selectedCollectionId === c.id ? 'bg-[#FF6C37]/20 text-[#FF6C37]' : 'hover:bg-[#252525]'}`}
+                    className={`flex items-center gap-2 p-2 cursor-pointer border-b border-[#333] last:border-b-0 ${selectedCollectionId === c.id ? 'bg-[var(--accent-color)]/20 text-[var(--accent-color)]' : 'hover:bg-[var(--bg-hover)]'}`}
                     onClick={() => setSelectedCollectionId(c.id)}
                   >
                     <Folder size={16} />
@@ -106,7 +106,7 @@ export default function SaveRequestModal({
           </div>
         </div>
         
-        <div className="p-4 border-t border-[#383838] flex justify-end gap-2 bg-[#181818] rounded-b-lg">
+        <div className="p-4 border-t border-[var(--border-color)] flex justify-end gap-2 bg-[var(--bg-sidebar)] rounded-b-lg">
           <button className="btn btn-secondary" onClick={onClose}>Cancel</button>
           <button 
             className="btn btn-primary" 

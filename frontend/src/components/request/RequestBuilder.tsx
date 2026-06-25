@@ -61,10 +61,10 @@ export default function RequestBuilder({ activeTabId }: { activeTabId: string | 
   return (
     <div className="flex flex-col h-full w-full">
       {/* URL Bar */}
-      <div className="flex items-center gap-2 p-4 bg-[#202020]">
-        <div className="flex bg-[#292929] border border-[#383838] rounded-md overflow-hidden w-full focus-within:border-[#FF6C37]">
+      <div className="flex items-center gap-2 p-4 bg-[var(--bg-panel)]">
+        <div className="flex bg-[#292929] border border-[var(--border-color)] rounded-md overflow-hidden w-full focus-within:border-[#FF6C37]">
           <select 
-            className={`bg-transparent outline-none p-2 font-bold cursor-pointer border-r border-[#383838] ${methodColors[request.method] || 'text-white'}`}
+            className={`bg-transparent outline-none p-2 font-bold cursor-pointer border-r border-[var(--border-color)] ${methodColors[request.method] || 'text-white'}`}
             value={request.method}
             onChange={(e) => updateRequest(activeTabId, { method: e.target.value })}
           >
@@ -110,7 +110,7 @@ export default function RequestBuilder({ activeTabId }: { activeTabId: string | 
       </div>
       
       {/* Tab Content */}
-      <div className="flex-1 overflow-auto bg-[#202020]">
+      <div className="flex-1 overflow-auto bg-[var(--bg-panel)]">
         {activeTab === 'Params' && (
           <KeyValueTable 
             items={request.params} 
@@ -144,7 +144,7 @@ export default function RequestBuilder({ activeTabId }: { activeTabId: string | 
               ))}
             </div>
             
-            <div className="flex-1 border border-[#383838] rounded-md overflow-hidden bg-[#1E1E1E]">
+            <div className="flex-1 border border-[var(--border-color)] rounded-md overflow-hidden bg-[#1E1E1E]">
               {request.body_type === 'none' && (
                 <div className="flex h-full items-center justify-center text-gray-500">This request does not have a body</div>
               )}
@@ -170,7 +170,7 @@ export default function RequestBuilder({ activeTabId }: { activeTabId: string | 
             <div className="flex items-center gap-4 mb-4">
               <span className="text-sm font-medium">Type:</span>
               <select 
-                className="bg-[#292929] border border-[#383838] rounded px-2 py-1 outline-none focus:border-[#FF6C37]"
+                className="bg-[#292929] border border-[var(--border-color)] rounded px-2 py-1 outline-none focus:border-[#FF6C37]"
                 value={request.auth_type}
                 onChange={(e) => updateRequest(activeTabId, { auth_type: e.target.value, auth: {} })}
               >

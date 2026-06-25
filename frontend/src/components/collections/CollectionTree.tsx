@@ -83,7 +83,7 @@ export default function CollectionTree() {
         {collections.map(collection => (
           <div key={collection.id} className="mb-1">
             <div 
-              className="flex items-center gap-1 p-1 hover:bg-[#333] cursor-pointer text-sm"
+              className="flex items-center gap-1 p-1 hover:bg-[var(--border-color)] cursor-pointer text-sm"
               onClick={(e) => toggleExpand(collection.id, e)}
             >
               {expanded[collection.id] ? <ChevronDown size={14} className="text-gray-500" /> : <ChevronRight size={14} className="text-gray-500" />}
@@ -92,14 +92,14 @@ export default function CollectionTree() {
             </div>
             
             {expanded[collection.id] && (
-              <div className="ml-5 border-l border-[#383838] pl-2">
+              <div className="ml-5 border-l border-[var(--border-color)] pl-2">
                 {collection.requests.length === 0 ? (
                   <div className="text-xs text-gray-500 py-1 italic">Empty collection</div>
                 ) : (
                   collection.requests.map(req => (
                     <div 
                       key={req.id} 
-                      className="flex items-center gap-2 p-1 hover:bg-[#333] cursor-pointer text-sm"
+                      className="flex items-center gap-2 p-1 hover:bg-[var(--border-color)] cursor-pointer text-sm"
                       onClick={() => handleOpenRequest(req)}
                     >
                       <span className={`text-[10px] font-bold w-10 ${methodColors[req.method] || 'text-gray-400'}`}>
